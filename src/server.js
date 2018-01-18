@@ -54,14 +54,6 @@ http.createServer(function (req, res) {
 
             res.write(responseText);
         });
-
-        // wikipedia.searchArticle(options, function (wikiError, htmlWikiText) {
-        //     if (wikiError) {
-        //         console.log("An error occurred[query=%s, error=%s]", query, wikiError);
-        //         return;
-        //     }
-        //     console.log("Query successful[query=%s, html-formatted-wiki-text=%s]\r\n", query, htmlWikiText);
-        // });
     }
 
     ignoreFavicon(req, res, function () {
