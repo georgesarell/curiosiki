@@ -26,21 +26,29 @@
 <body class="arial">
     <div align="center">
         <p>
+            <!-- BEGIN SEARCH FORM  -->
             <form method="POST">
+
                 <input type="text" name="frmSearch" value="{{searchterm}}" />
                 <input type="submit" value="Search" />
             </form>
+            <!-- END SEARCH FORM  -->
         </p>
         <table width="500" border="0" cellspacing="0" cellpadding="0">
             <tr>
                 <td>
+                    <!-- BEGIN WIKI CONTENT -->
                     {{wikicontent}}
+                    <!-- END WIKI CONTENT -->
                 </td>
             </tr>
-        </table><form method="POST">
+        </table>
+        <!-- BEGIN DIG BUTTON FORM -->
+        <form method="POST">
             <input type="hidden" name="frmSearch" value="{{dugterm}}" />
             <input type="submit" value="Dig" />
         </form>
+        <!-- END DIG BUTTON FORM -->
     </div>
 </body>
 
