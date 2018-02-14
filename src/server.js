@@ -9,8 +9,8 @@ var http = require('http'),
 const express = require('express')
 const app = express()
 
-var wikipedia = require('./wikipedia');
 
+app.set('view engine', 'pug')
 
 app.get('/', (req, res) => res.send('Hello World!'))
 
@@ -23,7 +23,8 @@ http.createServer(function (req, res) {
     function send(err, body) {
         var query = body.frmSearch != null ? body.frmSearch : "William Shatner";
 
-        wikipedia.wikipedia.search(query).then(function (pageData) {
+        var wikipedia = require('./wikipedia');
+        wikipedia.search(query).then(function (pageData) {
 
             var filePath = path.join(__dirname, 'template.html');
 

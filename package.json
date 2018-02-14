@@ -15,6 +15,7 @@
     "lodash": "^4.17.4",
     "parsoid": "^0.8.0",
     "promise": "^8.0.1",
+    "pug": "^2.0.0-rc.4",
     "wikipedia-js": "0.0.6",
     "wtf_wikipedia": "^2.5.0"
   }

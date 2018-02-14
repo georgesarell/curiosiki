@@ -50,7 +50,7 @@ methods.search = function(query) {
 }
 
 
-exports.wikipedia = methods;
+module.exports = methods;
 
 
     function promise() {
