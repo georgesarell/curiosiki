@@ -25,7 +25,6 @@ http.createServer(function (req, res) {
             var digValue = "Anything";
 
             if (data.type === "page") {
-                console.log("Found PAGE\r\n")
                 section = "";
                 var links = []
                 data.sections[0].sentences.forEach(element => {
@@ -40,8 +39,12 @@ http.createServer(function (req, res) {
 
                 console.log(`${JSON.stringify(links)}\tindex:${digIndex}\tvalue:${links[digIndex]}`);
             }
+            else{
+                console.log("Didn't find a page. Got some other response.\r\n");
+            }
 
             var responseText = templateContents;
+
             responseText = responseText.replace("{{wikicontent}}", section);
             responseText = responseText.replace("{{searchterm}}", query);
             responseText = responseText.replace("{{dugterm}}", digValue);
@@ -53,6 +56,8 @@ http.createServer(function (req, res) {
             });
 
             res.write(responseText);
+            res.flush();
+            res.end();
         });
     }
 
@@ -73,6 +78,5 @@ function ignoreFavicon(req, res, next) {
 function writeNoFavicon(r){
     r.writeHead(200, {'Content-Type': 'image/x-icon'} );
     r.end();
-    console.log('favicon requested');
     return;
 }

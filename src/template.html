@@ -3,10 +3,14 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>Wander</title>
+<title>Fortune</title>
     <style type="text/css">
         .arial {
-            font-family: Arial Black, Gadget, sans-serif;
+	font-family: Arial Black, Gadget, sans-serif;
+	font-size: 12px;
+	text-transform: uppercase;
+	font-style: normal;
+	text-align: justify;
         }
 
         .arial div p {
@@ -24,32 +28,37 @@
 </head>
 
 <body class="arial">
-    <div align="center">
+<div align="center">
         <p>
-            <!-- BEGIN SEARCH FORM  -->
-            <form method="POST">
+       
+  <form method="POST">
 
-                <input type="text" name="frmSearch" value="{{searchterm}}" />
-                <input type="submit" value="Search" />
-            </form>
-            <!-- END SEARCH FORM  -->
-        </p>
-        <table width="500" border="0" cellspacing="0" cellpadding="0">
-            <tr>
-                <td>
-                    <!-- BEGIN WIKI CONTENT -->
-                    {{wikicontent}}
-                    <!-- END WIKI CONTENT -->
-                </td>
-            </tr>
-        </table>
-        <!-- BEGIN DIG BUTTON FORM -->
-        <form method="POST">
-            <input type="hidden" name="frmSearch" value="{{dugterm}}" />
-            <input type="submit" value="Dig" />
+    <input type="text" name="frmSearch" style="font-face: Arial Black, Gadget, sans-serif; text-transform: uppercase; font-size : 14px; width: 250px; height: 25px; font-weight: bolder; border: 0pt; background-color: #000; color: #FFF; text-indent: 10px;" value="{{searchterm}}" />
+    
+                <input type="submit"  style="font-face: Arial Black, Gadget, sans-serif; text-transform: uppercase; font-size : 14px; width: 60px; height: 27px; text-align: center; font-weight: bolder; border: 0pt; background-color: #000; color: #FFF;" value="SURF" />
+                </p>
         </form>
-        <!-- END DIG BUTTON FORM -->
-    </div>
+        
+           <div style="border:none;width:550px;height:450px;overflow-y:scroll;overflow-x:hide;">
+<p style="height:auto;">
+                <td width="122">
+              <div align="justify">
+              
+           {{wikicontent}} 
+              
+              
+               </div></td>
+              
+           
+</div>
+        <form method="POST">
+          <p>
+            <input type="hidden" name="frmSearch" value="{{dugterm}}" />
+            <input type="submit" style="font-face: Arial Black, Gadget, sans-serif; text-transform: uppercase; font-size :14px; width: 60px; height: 27px; text-align: center; font-weight: bolder; border: 0pt; background-color: #000; color: #FFF;" value="DIG" />
+          </p>
+  </form>
+    <p>&nbsp;</p>
+</div>
 </body>
 
 </html>
