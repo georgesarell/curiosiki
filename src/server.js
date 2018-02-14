@@ -2,18 +2,28 @@ var http = require('http'),
     fileSystem = require('fs'),
     path = require('path'),
     formBody = require("body/form"),
-    wikipedia = require("wikipedia-js"),
     cheerio = require('cheerio'),
     wtf = require('wtf_wikipedia'),
     _ = require("lodash");
+
+const express = require('express')
+const app = express()
+
+var wikipedia = require('./wikipedia');
+
+
+app.get('/', (req, res) => res.send('Hello World!'))
+
+app.use(express.static('img'));
+
+app.listen(3000, () => console.log('Example app listening on port 3000!'))
 
 
 http.createServer(function (req, res) {
     function send(err, body) {
         var query = body.frmSearch != null ? body.frmSearch : "William Shatner";
 
-        wtf.from_api(query, 'en', function (markup) {
-            var data = wtf.parse(markup);
+        wikipedia.wikipedia.search(query).then(function (pageData) {
 
             var filePath = path.join(__dirname, 'template.html');
 
@@ -21,28 +31,9 @@ http.createServer(function (req, res) {
                 encoding: "ASCII"
             });
 
-            var section = "<p>Nothing to see here</p>";
-            var digValue = "Anything";
-
-            if (data.type === "page") {
-                section = "";
-                var links = []
-                data.sections[0].sentences.forEach(element => {
-                    section += `<p>${element.text}</p>`;
-
-                    links = _.concat(links, _.map(element.links, "page"));
-                });
-
-                var digIndex = Math.floor((Math.random() * links.length + 1))-1;
-
-                digValue = links[digIndex];
-
-                console.log(`${JSON.stringify(links)}\tindex:${digIndex}\tvalue:${links[digIndex]}`);
-            }
-            else{
-                console.log("Didn't find a page. Got some other response.\r\n");
-            }
-
+            var section = pageData.content;
+            var links = pageData.links;
+            var digValue = pageData.selectedLink;
             var responseText = templateContents;
 
             responseText = responseText.replace("{{wikicontent}}", section);
@@ -58,6 +49,7 @@ http.createServer(function (req, res) {
             res.write(responseText);
             res.flush();
             res.end();
+
         });
     }
 
@@ -75,8 +67,10 @@ function ignoreFavicon(req, res, next) {
     }
 }
 
-function writeNoFavicon(r){
-    r.writeHead(200, {'Content-Type': 'image/x-icon'} );
+function writeNoFavicon(r) {
+    r.writeHead(200, {
+        'Content-Type': 'image/x-icon'
+    });
     r.end();
     return;
 }
