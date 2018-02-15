@@ -1,10 +1,4 @@
-var http = require('http'),
-    fileSystem = require('fs'),
-    path = require('path'),
-    formBody = require("body/form"),
-    wikipedia = require("wikipedia-js"),
-    cheerio = require('cheerio'),
-    wtf = require('wtf_wikipedia'),
+var wtf = require('wtf_wikipedia'),
     _ = require("lodash");
 var Promise = require('promise');
 
@@ -19,7 +13,7 @@ methods.search = function (query) {
 
             var links = []
             var sentences = [];
-            
+
             if (data.type === "page") {
 
                 console.log("Number of sections: " + data.sections.length);
