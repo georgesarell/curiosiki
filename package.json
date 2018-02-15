@@ -13,10 +13,13 @@
     "cheerio": "^1.0.0-rc.2",
     "express": "^4.16.2",
     "lodash": "^4.17.4",
+    "mustache-express": "^1.2.5",
     "parsoid": "^0.8.0",
     "promise": "^8.0.1",
-    "pug": "^2.0.0-rc.4",
     "wikipedia-js": "0.0.6",
     "wtf_wikipedia": "^2.5.0"
+  },
+  "devDependencies": {
+    "mustache": "^2.3.0"
   }
 }
