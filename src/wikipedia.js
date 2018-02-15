@@ -17,14 +17,37 @@ methods.search = function (query) {
 
             var digValue = "";
 
+            var links = []
+            var sentences = [];
+            
             if (data.type === "page") {
-                var links = []
 
-                data.sections[0].sentences.forEach(element => {
-                    console.log("Sentence: " + element.text);
+                console.log("Number of sections: " + data.sections.length);
+                console.log(JSON.stringify(data));
 
-                    links = _.concat(links, _.map(element.links, "page"));
-                });
+                data.sections.forEach(function (section) {
+
+                    console.log("Section title: " + section.title);
+
+                    section.sentences.forEach(function (sentence) {
+
+                        console.log("Sentence: " + sentence.text);
+
+                        if (sentence.text != null && sentence.text != "") {
+                            sentences.push(sentence);
+                        } else {
+                            console.log("Sentence is null");
+                        }
+
+                        links = _.concat(links, _.map(sentence.links, "page"));
+                    });
+
+                    if (sentences.length > 0) {
+                        return false;
+                    } else {
+                        console.log("Empty section found. Moving to next section.");
+                    }
+                });;
 
                 var digIndex = Math.floor((Math.random() * links.length + 1)) - 1;
 
@@ -36,7 +59,7 @@ methods.search = function (query) {
             }
 
             fulfill({
-                content: data.sections[0].sentences,
+                content: sentences,
                 selectedLink: digValue,
                 links: links
             })
