@@ -1,13 +1,13 @@
 {
-  "name": "fortune",
+  "name": "curiosiki",
   "version": "1.0.0",
-  "description": "",
+  "description": "Take a random wander through Wikipedia and see where the world takes you.",
   "main": "index.js",
   "scripts": {
     "start-local": "cross-env PORT=3000 node ./src/server.js",
-    "start": "node ./src/server.js",
+    "start": "node ./src/server.js"
   },
-  "author": "",
+  "author": "George Sarell & Ben Crinion",
   "license": "ISC",
   "dependencies": {
     "body": "^5.1.0",
