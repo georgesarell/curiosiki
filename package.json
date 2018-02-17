@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start-local": "cross-env PORT=3000 node ./src/server.js",
+    "start": "node ./src/server.js",
   },
   "author": "",
   "license": "ISC",
@@ -17,5 +18,7 @@
     "promise": "^8.0.1",
     "wtf_wikipedia": "^2.5.0"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "cross-env": "^5.1.3"
+  }
 }
