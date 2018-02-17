@@ -32,11 +32,9 @@ app.post("/", function (req, res) {
 
         var wikipedia = require('./wikipedia');
         wikipedia.search(query).then(function (pageData) {
-
             res.render("index", _.assignIn(pageData, {
                 searchterm: query
             }));
-
         });
     });
 });
