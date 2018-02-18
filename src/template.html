@@ -3,7 +3,7 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Curiosiki</title>
+<title>CURIOSIKI</title>
     <style type="text/css">
         .arial {
 	font-family: Arial Black, Gadget, sans-serif;
@@ -12,6 +12,12 @@
 	font-style: normal;
 	text-align: justify;
         }
+		
+	#container{
+	width: inherit
+	height: inherit
+}
+
 
         .arial div p {
             color: #666;
@@ -33,28 +39,29 @@
        
   <form method="POST">
 
-    <input type="text" name="frmSearch" style="font-face: Arial Black, Gadget, sans-serif; text-transform: uppercase; font-size : 14px; width: 250px; height: 25px; font-weight: bolder; border: 0pt; background-color: #000; color: #FFF; text-indent: 10px;" value="{{searchterm}}" />
+     <input type="text" name="frmSearch" style="font-face: Arial Black, Gadget, sans-serif; text-transform: uppercase; font-size : 14px; width: 23.6%; height: 25px; font-weight: bolder; border: 0pt; background-color: #000; color: #FFF; text-indent: 10px; min-width: 236px;" value="CURIOSIKI" />
     
-                <input type="submit"  style="font-face: Arial Black, Gadget, sans-serif; text-transform: uppercase; font-size : 14px; width: 60px; height: 27px; text-align: center; font-weight: bolder; border: 0pt; background-color: #000; color: #FFF;" value="SURF" />
+                <input type="submit"  style="font-face: Arial Black, Gadget, sans-serif; text-transform: uppercase; font-size : 14px; width: 7.3%; height: 27px; text-align: center; font-weight: bolder; border: 0pt; background-color: #000; color: #FFF; min-width: 73px" value="SURF" />
                 </p>
         </form>
         
-           <div style="border:none;width:550px;height:450px;overflow-y:scroll;overflow-x:hide;">
+          <div style="border:none; width:61.8%; max-height:61.8vh ; overflow-y:scroll; overflow-x:hide; min-width: 309px; min-height: 61.8vh; margin-bottom: 2%; padding-bottom: 2%;">
 <p style="height:auto;">
-                <td width="122">
+               
               <div align="justify">
               
            {{wikicontent}} 
               
               
-               </div></td>
+               </div>
               
            
 </div>
         <form method="POST">
           <p>
             <input type="hidden" name="frmSearch" value="{{dugterm}}" />
-            <input type="submit" style="font-face: Arial Black, Gadget, sans-serif; text-transform: uppercase; font-size :14px; width: 60px; height: 27px; text-align: center; font-weight: bolder; border: 0pt; background-color: #000; color: #FFF;" value="DIG" />
+            <input type="submit" style="font-face: Arial Black, Gadget, sans-serif; text-transform: uppercase; font-size :14px; width: 7.3%; height: 27px; text-align: center; font-weight: bolder; border: 0pt; background-color: #000; color: #FFF; min-width: 73px; position:relative;" 
+value="DIG" />
           </p>
   </form>
     <p>&nbsp;</p>
